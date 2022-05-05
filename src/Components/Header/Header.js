@@ -1,7 +1,80 @@
 
+import { useEffect, useRef, useState } from "react"
 import "./header.css"
 
 function Header() {
+
+    const chooseDay = useRef()
+    const amountPeople = useRef()
+    const pointer = useRef()
+    const [day, setDay] = useState()
+    const [amountAdult, setAmountAdult] = useState(0)
+    const [amountChildren, setAmountChildren] = useState(0)
+    const [amountInfant, setAmountInfant] = useState(0)
+    const [totalGuests, setTotalGuests] = useState(0)
+    const [iconLanguage, setIconLanguage] = useState("https://www.luxstay.com/icons/vi.svg")
+    const [currency, setCurrency] = useState("VND")
+
+    const clickSideOutElement = function(e) {
+        if(document.querySelector(".header-search__amount").contains(e.target) && amountPeople.current.style.display == "none") {
+            amountPeople.current.style.display = "block"
+        } else if(amountPeople.current.contains(e.target)) {
+            console.log("CHonj soos luowngj")
+        } else {
+            amountPeople.current.style.display = "none"
+        }
+        if(document.querySelector(".header-search__day").contains(e.target) && chooseDay.current.style.display == "none") {
+            chooseDay.current.style.display = "block"
+        } else if(chooseDay.current.contains(e.target)) {
+            console.log("CHonj ngay")
+        } else {
+            chooseDay.current.style.display = "none"
+        }
+        if(document.querySelector(".header--navbar__pointer").contains(e.target) && pointer.current.style.display == "none") {
+            pointer.current.style.display = "flex"
+            pointer.current.style.transform = "translateY(0%)"
+        } else if(pointer.current.contains(e.target)) {
+            console.log("CHonj ngon ngu")
+        }  else {
+            pointer.current.style.display = "none"
+            pointer.current.style.transform = "translateY(-60%)"
+        }
+    }
+
+    
+    useEffect(() => {
+        const languageList = document.querySelectorAll(".pointer__item--language")
+        Array.from(languageList).forEach(function(languageItem){
+            languageItem.onclick = function(){
+                Array.from(languageList).forEach(function(languageItem){
+                    if(languageItem.classList.contains('active')){
+                        languageItem.classList.remove('active')
+                    }
+                },)
+                languageItem.classList.add('active')
+                setIconLanguage(languageItem.querySelector(".pointer__lis--language--img").src)
+            }
+        })
+    
+        const moneyList = document.querySelectorAll(".pointer__item--money")
+        Array.from(moneyList).forEach(function(moneyItem){
+            moneyItem.onclick = function(){
+                Array.from(moneyList).forEach(function(moneyItem){
+                    if(moneyItem.classList.contains('active')){
+                        moneyItem.classList.remove('active')
+                    }
+                },)
+                moneyItem.classList.add('active')
+                setCurrency(moneyItem.querySelector(".pointer__item--money--unit").innerText)
+            }
+        })
+        document.body.addEventListener('click', (e) => clickSideOutElement(e));
+
+        return function cleanup() {
+            document.body.removeEventListener("click", e => clickSideOutElement(e))
+        }
+    })
+    
 
     return(
         <div className="header">
@@ -29,32 +102,56 @@ function Header() {
                                             <span className="header-search--history__boby--info-amount">1711 Chỗ ở</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div>  
                                 
                             </div>
-                            <div className="header-search__day">
+                            <div className="header-search__day" 
+                                onClick={() => chooseDay.current.style.display = "block"}>
                                 <i className="header-search__day--icon fas fa-calendar-alt"></i>
-                                <p className="header-search__day--text">Ngày</p>
+                                <p className="header-search__day--text">{day? day: "Ngày"}</p>
                             </div>
-                            <div className="header-search__day--box">
-                                <input type="date" className="header-search__day--input"/>
+                            <div className="header-search__day--box" 
+                                ref={chooseDay}
+                                onBlur={() => chooseDay.current.style.display = "none"}
+                                >
+                                <input type="date" className="header-search__day--input"
+                                        value={day}
+                                        onChange={(e) => setDay(e.target.value)}/>
                             </div>
-                            <div className="header-search__amount">
+                            <div className="header-search__amount" 
+                                onClick={() => {
+                                    if(amountPeople.current.style.display == "block") {
+                                        amountPeople.current.style.display = "none"
+                                    }
+                                }}>
                                 <i className="header-search__amount--icon fas fa-user"></i>
-                                <h2 className="header-search__amount--text">Số khách</h2>
+                                <h2 className="header-search__amount--text">{totalGuests? (totalGuests + " khách"): "Số khách"}</h2>
                             </div>
-                            <div className="header-search__amount-people">
+                            <div className="header-search__amount-people" 
+                                ref={amountPeople}>
                                 <ul className="amount-people__list">
                                     <li className="amount-people__item">
                                         <div className="amount-people__item--lever">
                                             <p className="amount-people__item--lever--text">Người Lớn</p>
-                                            <p className="amount-people__item--lever--des"></p>
+                                            <p className="amount-people__item--lever--des">Trên 12 tuổi(hoặc trên 1m2)</p>
                                         </div>
             
                                         <div className="amount-people__item--wap">
-                                            <i className="amount-people__item--icon-minus ti-minus"></i>
-                                            <input type="number" className="amount-people__item--amount" value="0" step="1" min="0" />
-                                            <i className="amount-people__item--icon-plus ti-plus"></i>
+                                            <i className="amount-people__item--icon-minus fas fa-minus"
+                                                onClick={() => {
+                                                    if(amountAdult >= 1){
+                                                        setAmountAdult(pre => pre - 1)
+                                                        setTotalGuests(pre => pre - 1)}}    
+                                                    }
+                                                    >
+                                                    </i>
+                                            <input type="number" className="amount-people__item--amount" 
+                                                value={amountAdult} readOnly min="0"  />
+                                            <i className="amount-people__item--icon-plus fas fa-plus"
+                                                onClick={() => {
+                                                    setAmountAdult(pre => pre + 1)
+                                                    setTotalGuests(pre => pre + 1)}}>
+                                            </i>
                                         </div>
                                     </li>
                                     <li className="amount-people__item">
@@ -64,9 +161,21 @@ function Header() {
                                         </div>
             
                                         <div className="amount-people__item--wap">
-                                            <i className="amount-people__item--icon-minus ti-minus"></i>
-                                            <input type="number" className="amount-people__item--amount" value="0" step="1" min="0"/>
-                                            <i className="amount-people__item--icon-plus ti-plus"></i>
+                                            <i className="amount-people__item--icon-minus fas fa-minus"
+                                                onClick={() => {
+                                                    if(amountChildren >= 1){
+                                                        setAmountChildren(pre => pre - 1)
+                                                        setTotalGuests(pre => pre - 1)}}    
+                                                    }
+                                                    >
+                                                    </i>
+                                            <input type="number" className="amount-people__item--amount" 
+                                                value={amountChildren} readOnly min="0"/>
+                                            <i className="amount-people__item--icon-plus fas fa-plus"
+                                                onClick={() => {
+                                                    setAmountChildren(pre => pre + 1)
+                                                    setTotalGuests(pre => pre + 1)}}>
+                                            </i>
                                         </div>
                                     </li>
                                     <li className="amount-people__item">
@@ -76,9 +185,21 @@ function Header() {
                                         </div>
             
                                         <div className="amount-people__item--wap">
-                                            <i className="amount-people__item--icon-minus ti-minus"></i>
-                                            <input type="number" className="amount-people__item--amount" value="0" step="1" min="0"/>
-                                            <i className="amount-people__item--icon-plus ti-plus"></i>
+                                            <i className="amount-people__item--icon-minus fas fa-minus"
+                                                onClick={() => {
+                                                    if(amountInfant >= 1){
+                                                        setAmountInfant(pre => pre - 1)
+                                                        setTotalGuests(pre => pre - 1)}}    
+                                                    }
+                                                    >
+                                                    </i>
+                                            <input type="number" className="amount-people__item--amount" 
+                                                value={amountInfant} readOnly min="0"/>
+                                            <i className="amount-people__item--icon-plus fas fa-plus"
+                                                onClick={() => {
+                                                    setAmountInfant(pre => pre + 1)
+                                                    setTotalGuests(pre => pre + 1)}}>
+                                            </i>
                                         </div>
                                     </li>
                                 </ul>
@@ -123,47 +244,61 @@ function Header() {
                                     <a href="./login.html" className="header-navbar__item--link">Đăng Nhập</a>
                                 </li>
                             </ul>
-                            <div className="header--navbar__pointer">
-                                <img src="https://www.luxstay.com/icons/vi.svg" alt="" className="header--navbar__pointer--img"/>
-                                <span className="header--navbar__pointer--text">VND</span>
+                            <div className="header--navbar__pointer"
+                                onClick={() => {
+                                    if(pointer.current.style.display === "flex") {
+                                        pointer.current.style.display = "none"
+                                        pointer.current.style.transform = "translateY(-60%)"
+                                    } else {
+                                        pointer.current.style.display = "flex"
+                                        pointer.current.style.transform = "translateY(0%)"
+                                    }
+                                }}>
+                                <img src={iconLanguage} alt="" className="header--navbar__pointer--img"/>
+                                <span className="header--navbar__pointer--text">{currency}</span>
                                 <i className="header--navbar__pointer--icon fas fa-angle-down"></i>
-                                <div className="pointer">
-                                    <ul className="pointer__lis--language">
-                                        <li className="pointer__item--language active">
-                                            <img src="/assets/img/pointer/VN.svg" alt="" className="pointer__lis--language--img"/>
-                                            Tiếng Việt
-                                            <i className="pointer__lis--language--check ti-check"></i>
-                                        </li>
-                                        <li className="pointer__item--language">
-                                            <img src="/assets/img/pointer/EN.svg" alt="" className="pointer__lis--language--img"/>
-                                            English
-                                            <i className="pointer__lis--language--check ti-check"></i>
-                                        </li>
-                                        <li className="pointer__item--language">
-                                            <img src="" alt=""  className="pointer__lis--language--img"/>
-                                            <img src="/assets/img/pointer/KO.svg" alt="" className="pointer__lis--language--img"/>
-                                            Korea
-                                            <i className="pointer__lis--language--check ti-check"></i>
-                                        </li>
-                                    </ul>
-                                    <ul className="pointer__lis--money">
-                                        <li className="pointer__item--money active">
-                                            <span className="pointer__item--money--unit">VND</span>
-                                            <span className="pointer__item--money--name">Việt Nam Đồng</span>
-                                            <i className="pointer__item--money--icon ti-check"></i>
-                                        </li>
-                                        <li className="pointer__item--money">
-                                            <span className="pointer__item--money--unit ">USD</span>
-                                            <span className="pointer__item--money--name">United States Dollar</span>
-                                            <i className="pointer__item--money--icon ti-check"></i>
-                                        </li>
-                                        <li className="pointer__item--money">
-                                            <span className="pointer__item--money--unit">KRW</span>
-                                            <span className="pointer__item--money--name">Won</span>
-                                            <i className="pointer__item--money--icon ti-check"></i>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div className="pointer" ref={pointer}>
+                                <ul className="pointer__lis--language">
+                                    <li className="pointer__item--language active"
+                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                        <img src="https://www.luxstay.com/icons/vi.svg" alt="" 
+                                            className="pointer__lis--language--img"/>
+                                        Tiếng Việt
+                                        <i className="pointer__lis--language--check fas fa-check"></i>
+                                    </li>
+                                    <li className="pointer__item--language"
+                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                        <img src="https://luxstay.com/icons/en.svg" alt="" 
+                                            className="pointer__lis--language--img"/>
+                                        English
+                                        <i className="pointer__lis--language--check fas fa-check"></i>
+                                    </li>
+                                    <li className="pointer__item--language"
+                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                        <img src="https://luxstay.com/icons/ko.svg" alt="" 
+                                            className="pointer__lis--language--img"/>
+                                        Korea
+                                        <i className="pointer__lis--language--check fas fa-check"></i>
+                                    </li>
+                                </ul>
+                                <ul className="pointer__lis--money">
+                                    <li className="pointer__item--money active">
+                                        <span className="pointer__item--money--unit">VND</span>
+                                        <span className="pointer__item--money--name">Việt Nam Đồng</span>
+                                        <i className="pointer__item--money--icon fas fa-check"></i>
+                                    </li>
+                                    <li className="pointer__item--money">
+                                        <span className="pointer__item--money--unit ">USD</span>
+                                        <span className="pointer__item--money--name">United States Dollar</span>
+                                        <i className="pointer__item--money--icon fas fa-check"></i>
+                                    </li>
+                                    <li className="pointer__item--money">
+                                        <span className="pointer__item--money--unit">KRW</span>
+                                        <span className="pointer__item--money--name">Won</span>
+                                        <i className="pointer__item--money--icon fas fa-check"></i>
+                                    </li>
+                                </ul>
+                            </div>
                             </div>
                         </div>
                 </div>

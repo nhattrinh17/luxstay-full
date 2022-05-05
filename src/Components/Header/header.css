@@ -122,7 +122,7 @@
     align-items: center;
     position: relative;
     font-weight: 500;
-    margin: 0 25px;
+    margin: 0 20px;
 }
 
 .header-search__day::before{
@@ -141,8 +141,9 @@
 
 .header-search__day--text{
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 50px;
+    width: 64px;
 }
 
 .header-search__day--box{
@@ -164,7 +165,7 @@
 .header-search__amount{
     display: flex;
     position: relative;
-    margin: 0 25px;
+    margin: 0 16px;
     height: 100%;
     align-items: center;
 }
@@ -186,9 +187,10 @@
 
 .header-search__amount--text{
     padding: 19px 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--text-color);
+    width: 60;
 }
 
 .header-search__amount-people{
@@ -261,7 +263,7 @@
     text-align: center;
     line-height: 40px;
     cursor: pointer;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 .amount-people__item--icon-minus.active {
@@ -291,6 +293,7 @@
     text-align: center;
     line-height: 40px;
     cursor: pointer;
+    opacity: 0.7;
 }
 
 .amount-people__item--icon-plus:hover{
