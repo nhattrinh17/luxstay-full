@@ -123,6 +123,7 @@
     position: relative;
     font-weight: 500;
     margin: 0 20px;
+    cursor: pointer;
 }
 
 .header-search__day::before{
@@ -168,6 +169,7 @@
     margin: 0 16px;
     height: 100%;
     align-items: center;
+    cursor: pointer;
 }
 
 .header-search__amount::before{
@@ -384,6 +386,7 @@
     background-color: #f6f6f6;
     text-align: right;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .header--navbar__pointer--img{

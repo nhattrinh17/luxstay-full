@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import "./header.css"
 
 function Header() {
-
+    
     const chooseDay = useRef()
     const amountPeople = useRef()
     const pointer = useRef()
@@ -16,19 +16,20 @@ function Header() {
     const [currency, setCurrency] = useState("VND")
 
     const clickSideOutElement = function(e) {
+        if(document.querySelector(".header-search__day").contains(e.target) && chooseDay.current.style.display == "none") {
+            chooseDay.current.style.display = "block"
+        } else if(chooseDay.current.contains(e.target)) {
+            console.log("CHonj soos luowngj")
+        } else {
+            chooseDay.current.style.display = "none"
+        }
         if(document.querySelector(".header-search__amount").contains(e.target) && amountPeople.current.style.display == "none") {
+            console.log(amountPeople.current.style.display = "block")
             amountPeople.current.style.display = "block"
         } else if(amountPeople.current.contains(e.target)) {
             console.log("CHonj soos luowngj")
         } else {
             amountPeople.current.style.display = "none"
-        }
-        if(document.querySelector(".header-search__day").contains(e.target) && chooseDay.current.style.display == "none") {
-            chooseDay.current.style.display = "block"
-        } else if(chooseDay.current.contains(e.target)) {
-            console.log("CHonj ngay")
-        } else {
-            chooseDay.current.style.display = "none"
         }
         if(document.querySelector(".header--navbar__pointer").contains(e.target) && pointer.current.style.display == "none") {
             pointer.current.style.display = "flex"
@@ -40,7 +41,6 @@ function Header() {
             pointer.current.style.transform = "translateY(-60%)"
         }
     }
-
     
     useEffect(() => {
         const languageList = document.querySelectorAll(".pointer__item--language")
@@ -73,9 +73,8 @@ function Header() {
         return function cleanup() {
             document.body.removeEventListener("click", e => clickSideOutElement(e))
         }
-    })
+    }, [chooseDay, amountPeople, pointer])
     
-
     return(
         <div className="header">
             <div className="grid wide">
@@ -106,7 +105,13 @@ function Header() {
                                 
                             </div>
                             <div className="header-search__day" 
-                                onClick={() => chooseDay.current.style.display = "block"}>
+                                onClick={() =>{
+                                    if(chooseDay.current.style.display == "block") {
+                                        chooseDay.current.style.display = "none"
+                                    } else {
+                                        chooseDay.current.style.display = "block"
+                                    }
+                                    }}>
                                 <i className="header-search__day--icon fas fa-calendar-alt"></i>
                                 <p className="header-search__day--text">{day? day: "Ngày"}</p>
                             </div>
@@ -122,6 +127,8 @@ function Header() {
                                 onClick={() => {
                                     if(amountPeople.current.style.display == "block") {
                                         amountPeople.current.style.display = "none"
+                                    } else {
+                                        amountPeople.current.style.display = "block"
                                     }
                                 }}>
                                 <i className="header-search__amount--icon fas fa-user"></i>
@@ -204,7 +211,15 @@ function Header() {
                                     </li>
                                 </ul>
                                 <div className="amount-people__confirm">
-                                    <a href="" className="amount-people__confirm-delete">Xóa</a>
+                                    <a href="" className="amount-people__confirm-delete"
+                                        onClick={(e)=>{
+                                            e.preventDefault();
+                                            setAmountAdult(0)
+                                            setAmountChildren(0)
+                                            setAmountInfant(0)
+                                            setTotalGuests(0)
+                                        }}>
+                                            Xóa</a>
                                     <a href="" className="amount-people__confirm-appky">Áp dụng</a>
                                 </div>
                             </div>
@@ -259,22 +274,19 @@ function Header() {
                                 <i className="header--navbar__pointer--icon fas fa-angle-down"></i>
                             <div className="pointer" ref={pointer}>
                                 <ul className="pointer__lis--language">
-                                    <li className="pointer__item--language active"
-                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                    <li className="pointer__item--language active">
                                         <img src="https://www.luxstay.com/icons/vi.svg" alt="" 
                                             className="pointer__lis--language--img"/>
                                         Tiếng Việt
                                         <i className="pointer__lis--language--check fas fa-check"></i>
                                     </li>
-                                    <li className="pointer__item--language"
-                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                    <li className="pointer__item--language">
                                         <img src="https://luxstay.com/icons/en.svg" alt="" 
                                             className="pointer__lis--language--img"/>
                                         English
                                         <i className="pointer__lis--language--check fas fa-check"></i>
                                     </li>
-                                    <li className="pointer__item--language"
-                                        onClick={(e) => setIconLanguage(e.target.querySelector("img").src)}>
+                                    <li className="pointer__item--language">
                                         <img src="https://luxstay.com/icons/ko.svg" alt="" 
                                             className="pointer__lis--language--img"/>
                                         Korea
