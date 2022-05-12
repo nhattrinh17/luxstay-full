@@ -11,8 +11,8 @@ function Welcome() {
                     Đặt chỗ ở, homestay, cho thuê xe, trải nghiệm và nhiều hơn nữa trên Luxstay
                 </p>
                 <p class="container-welcome__desc-link">
-                    <Link to="./login" class="container-welcome__link">Đăng nhập</Link>{" hoặc "}
-                    <Link to="./registration" class="container-welcome__link">Đăng ký</Link>
+                    <Link to="/vi/login" class="container-welcome__link">Đăng nhập</Link>{" hoặc "}
+                    <Link to="/vi/registration" class="container-welcome__link">Đăng ký</Link>
                     {" để trải nghiệm !"}
                 </p>
             </div>

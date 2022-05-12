@@ -24,7 +24,7 @@
     .header-search__day,
     .header-search__amount,
     .header-navbar{
-        display: none;
+        display: none !important;
     }
 
     .header-search{
@@ -43,7 +43,7 @@
     }
 
     .header-navbar{
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         position: fixed;
         height: 100vh;
@@ -71,7 +71,7 @@
     }
 
     .pointer__lis--money::before{
-        display: none;
+        display: none !important;
     }
 
     .header--navbar__pointer{
@@ -80,12 +80,22 @@
     }
 
     .pointer{
-        width: 100%;
+        width: 100% !important;
         flex-direction: column;
     }
 
     .pointer::before{
         display: none;
+    }
+
+    .pointer__lis--money,
+    .pointer__lis--language{
+        width: 100% !important;
+    }
+
+    .container-place__pre,
+    .container-place__next{
+        display: none !important;
     }
     
 }
@@ -152,7 +162,7 @@
 
     .container-slider{
         margin-bottom: 30px;
-        margin-top: 80px;
+        margin-top: 80px !important;
     }
 
     .container-slider__input{

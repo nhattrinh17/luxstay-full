@@ -1,4 +1,5 @@
 import {useState } from "react"
+import { Link } from "react-router-dom"
 
 import "./slider.css"
 
@@ -9,7 +10,7 @@ function Slider() {
     return(
         <div className = "grid wide">
             <div className = "container-slider">
-                <a href="./homestay.html" className = "container-slider__link">
+                <Link to="/vi/homestay" className = "container-slider__link">
                     <img src="https://nhattrinh17.github.io/assets/img/slider/slider1.png" 
                         alt=""
                         className={indexSlider === 1? "container-slider__img active" : "container-slider__img "}/>
@@ -19,7 +20,7 @@ function Slider() {
                     <img src="https://nhattrinh17.github.io/assets/img/slider/slider3.png" 
                         alt=""
                         className={indexSlider === 3? "container-slider__img active" : "container-slider__img "}/>
-                </a>
+                </Link>
                 <div className = "container-slider__input">
                     <input type="radio" name="slider" id="slider1" 
                         checked = {indexSlider === 1? true : false} 

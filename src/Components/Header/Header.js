@@ -17,21 +17,21 @@ function Header() {
     const [currency, setCurrency] = useState("VND")
 
     const clickSideOutElement = function(e) {
-        if(document.querySelector(".header-search__day").contains(e.target) && chooseDay.current.style.display == "none") {
+        if(document.querySelector(".header-search__day").contains(e.target) && chooseDay.current.style.display === "none") {
             chooseDay.current.style.display = "block"
         } else if(chooseDay.current.contains(e.target)) {
             console.log("Chon ngay")
         } else {
             chooseDay.current.style.display = "none"
         }
-        if(document.querySelector(".header-search__amount").contains(e.target) && amountPeople.current.style.display == "none") {
+        if(document.querySelector(".header-search__amount").contains(e.target) && amountPeople.current.style.display === "none") {
             amountPeople.current.style.display = "block"
         } else if(amountPeople.current.contains(e.target)) {
             console.log("Chon so luong")
         } else {
             amountPeople.current.style.display = "none"
         }
-        if(document.querySelector(".header--navbar__pointer").contains(e.target) && pointer.current.style.display == "none") {
+        if(document.querySelector(".header--navbar__pointer").contains(e.target) && pointer.current.style.display === "none") {
             pointer.current.style.display = "flex"
             pointer.current.style.transform = "translateY(0%)"
         } else if(pointer.current.contains(e.target)) {
@@ -107,7 +107,7 @@ function Header() {
                             </div>
                             <div className="header-search__day" 
                                 onClick={() =>{
-                                    if(chooseDay.current.style.display == "block") {
+                                    if(chooseDay.current.style.display === "block") {
                                         chooseDay.current.style.display = "none"
                                     } else {
                                         chooseDay.current.style.display = "block"
@@ -126,7 +126,7 @@ function Header() {
                             </div>
                             <div className="header-search__amount" 
                                 onClick={() => {
-                                    if(amountPeople.current.style.display == "block") {
+                                    if(amountPeople.current.style.display === "block") {
                                         amountPeople.current.style.display = "none"
                                     } else {
                                         amountPeople.current.style.display = "block"
@@ -212,7 +212,7 @@ function Header() {
                                     </li>
                                 </ul>
                                 <div className="amount-people__confirm">
-                                    <a href="" className="amount-people__confirm-delete"
+                                    <p href="" className="amount-people__confirm-delete"
                                         onClick={(e)=>{
                                             e.preventDefault();
                                             setAmountAdult(0)
@@ -220,13 +220,13 @@ function Header() {
                                             setAmountInfant(0)
                                             setTotalGuests(0)
                                         }}>
-                                            Xóa</a>
+                                            Xóa</p>
                                     <h3 className="amount-people__confirm-appky">Áp dụng</h3>
                                 </div>
                             </div>
-                            <a href="#" className="header-search__start">
+                            <Link to="#" className="header-search__start">
                             <i className="header-search__start--icon fas fa-search"></i>
-                            </a>
+                            </Link>
             
                         </div>
 
@@ -251,7 +251,7 @@ function Header() {
                             </div>
                             <ul className="header-navbar__list">
                                 <li className="header-navbar__item">
-                                    <a href="#" className="header-navbar__item--link header-navbar__item--link-ative">Host</a>
+                                    <Link to="/login" className="header-navbar__item--link header-navbar__item--link-ative">Host</Link>
                                 </li>
                                 <li className="header-navbar__item">
                                     <Link to="/registration" className="header-navbar__item--link">Đăng Kí</Link>

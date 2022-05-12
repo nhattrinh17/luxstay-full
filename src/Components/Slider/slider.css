@@ -15,12 +15,13 @@
     min-height: 100px;
     border-radius: 20px;
     object-fit: cover;
+    /* transform: translateX(-100%); */
 }
 
 .container-slider__img.active{
     display: block;
-    transform-origin: -50% -50% ;
-    animation: fadeIn ease 0.5s;
+    /* transform: translateX(0); */
+    animation: moveLeftToRight ease 1s;
 }
 
 .container-slider__input{
