@@ -97,6 +97,16 @@
     .container-place__next{
         display: none !important;
     }
+
+    .container-suggestions__pre,
+    .container-suggestions__next{
+        display: none !important;
+    }
+
+    .container-tutorial__pre,
+    .container-tutorial__next {
+        display: none !important;
+    }
     
 }
 

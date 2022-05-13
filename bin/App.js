@@ -9,7 +9,6 @@ import Place from './Components/Place/Place';
 import Endow from './Components/Endow/Endow';
 import Suggestions from './Components/Suggestions/Suggestions';
 import Footer from './Components/Footer/Footer';
-import Tutorial from './Components/Tutorial/Tutorial';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
                         <Place/>
                         <Endow/>
                         <Suggestions/>
-                        <Tutorial/>
                       </React.Fragment>}/>
       </Routes>
       <Footer/>
