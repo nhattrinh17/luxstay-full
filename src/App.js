@@ -1,5 +1,5 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom'
+import React, { useEffect } from 'react';
+import {Routes, Route, useNavigate} from 'react-router-dom'
 
 import './App.css';
 import Header from './Components/Header/Header';
@@ -12,6 +12,16 @@ import Footer from './Components/Footer/Footer';
 import Tutorial from './Components/Tutorial/Tutorial';
 
 function App() {
+
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    if(window.location.pathname === "/") {
+      console.log(window.location.pathname)
+      navigate("/vi")
+    }
+  }, [navigate])
+
   return (
     <div className="App">
       <Routes>
