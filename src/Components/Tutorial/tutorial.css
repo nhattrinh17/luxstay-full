@@ -1,34 +1,34 @@
-.container-tutorial__list{
+.container-tutorial__list {
     padding-bottom: 65px;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     overflow-x: auto;
 }
 
-.container-tutorial__list::-webkit-scrollbar{
+.container-tutorial__list::-webkit-scrollbar {
     display: none;
 }
 
 .container-tutorial__item.active {
-    display: block;
+    display: block !important;
     animation: fadeIn ease 2s;
 }
 
-.container-tutorial__item{
-    display: none;
+.container-tutorial__item {
+    display: none !important;
 }
 
-.container-tutorial__link{
+.container-tutorial__link {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-.container-tutorial{
+.container-tutorial {
     margin-bottom: 62px;
     position: relative;
 }
 
-.container-tutorial__img{
+.container-tutorial__img {
     max-width: 100%;
     padding-top: 54.317%;
     border-radius: 5px;
@@ -37,8 +37,7 @@
     background-repeat: no-repeat;
 }
 
-
-.container-tutorial__next{
+.container-tutorial__next {
     position: absolute;
     display: block;
     outline: none;
@@ -64,7 +63,7 @@
     background-color: white;
 }
 
-.container-tutorial__pre{
+.container-tutorial__pre {
     position: absolute;
     display: block;
     outline: none;

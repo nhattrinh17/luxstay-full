@@ -1,24 +1,23 @@
-
-.container-place{
+.container-place {
     padding: 40px 0 60px;
 }
 
-.container-place__list{
+.container-place__list {
     flex-wrap: nowrap;
     overflow-x: auto;
     position: relative;
 }
 
-.container-place__item{
-    display: none;
+.container-place__item {
+    display: none !important;
 }
 
 .container-place__item.active {
-    display: block;
+    display: block !important;
     animation: fadeIn ease 2s;
-} 
+}
 
-.container-place__next{
+.container-place__next {
     position: absolute;
     display: block;
     outline: none;
@@ -44,7 +43,7 @@
     background-color: white;
 }
 
-.container-place__pre{
+.container-place__pre {
     position: absolute;
     display: block;
     outline: none;
@@ -62,34 +61,34 @@
     cursor: pointer;
 }
 
-.container-place__list::-webkit-scrollbar{
+.container-place__list::-webkit-scrollbar {
     display: none;
 }
 
-.place__heading{
+.place__heading {
     margin: 0 0 16px 0;
     font-size: 2.4rem;
     line-height: 2.4rem;
 }
 
-.place__desc{
+.place__desc {
     font-size: 1.6rem;
     color: #555555;
     margin: 0 0 16px 0;
 }
 
-.container-place__conten{
+.container-place__conten {
     border-radius: 6px;
     position: relative;
 }
 
-.container-place__conten::before{
-    content: "";
+.container-place__conten::before {
+    content: '';
     display: block;
     padding-top: 125%;
 }
 
-.container-place__img{
+.container-place__img {
     position: absolute;
     top: 0;
     left: 0;
@@ -99,18 +98,18 @@
     border-radius: 6px;
 }
 
-.container-place__body{
+.container-place__body {
     position: absolute;
     top: 70%;
     left: 12%;
     color: var(--While-color);
 }
 
-.container-place__body--name{
+.container-place__body--name {
     font-size: 2rem;
     margin: 0 0 10px 0;
 }
 
-.container-place__body--number{
+.container-place__body--number {
     font-size: 1.6rem;
 }

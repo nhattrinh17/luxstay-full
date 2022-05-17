@@ -1,45 +1,45 @@
-import React, { useEffect } from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import React, { useEffect, Fragment } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import './App.css';
-import Header from './Components/Header/Header';
-import Slider from './Components/Slider/Slider';
-import Welcome from './Components/Welcome/Welcome';
-import Place from './Components/Place/Place';
-import Endow from './Components/Endow/Endow';
-import Suggestions from './Components/Suggestions/Suggestions';
-import Footer from './Components/Footer/Footer';
-import Tutorial from './Components/Tutorial/Tutorial';
+import { DefaultLayout } from './Components/Layout';
+import { publicRoutes } from './routes';
 
 function App() {
+    const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  
-  useEffect(() => {
-    if(window.location.pathname === "/") {
-      console.log(window.location.pathname)
-      navigate("/vi")
-    }
-  }, [navigate])
+    useEffect(() => {
+        if (window.location.pathname === '/') {
+            console.log(window.location.pathname);
+            navigate('/vi');
+        }
+    }, [navigate]);
 
-  return (
-    <div className="App">
-      <Routes>
-        <Route path='/vi' 
-              element={<React.Fragment>
-                        <Header/>
-                        <Slider/> 
-                        <Welcome/>
-                        <Place/>
-                        <Endow/>
-                        <Suggestions/>
-                        <Tutorial/>
-                      </React.Fragment>}/>
-      </Routes>
-      <Footer/>
-      
-    </div>
-  );
+    return (
+        <div className="App">
+            <Routes>
+                {publicRoutes.map((route, index) => {
+                    let Layout = DefaultLayout;
+                    if (route.layout) {
+                        Layout = route.layout;
+                    } else if (route.layout === null) {
+                        Layout = Fragment;
+                    }
+                    const Page = route.component;
+                    return (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

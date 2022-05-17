@@ -1,34 +1,34 @@
-.container-suggestions{
+.container-suggestions {
     margin-bottom: 100px;
     position: relative;
 }
 
-.about__header{
+.about__header {
     margin: 0;
     font-size: 2.4rem;
     line-height: 2.4rem;
     color: var(--text-color);
 }
 
-.container-suggestions__list{
-    flex-wrap: nowrap; 
+.container-suggestions__list {
+    flex-wrap: nowrap;
     overflow-x: auto;
 }
 
-.container-suggestions__list::-webkit-scrollbar{
+.container-suggestions__list::-webkit-scrollbar {
     display: none;
 }
 
-.container-suggestions__item{
-    display: none;
+.container-suggestions__item {
+    display: none !important;
 }
 
 .container-suggestions__item.active {
-    display: block;
+    display: block !important;
     animation: fadeIn ease 2s;
-} 
+}
 
-.container-suggestions__next{
+.container-suggestions__next {
     position: absolute;
     display: block;
     outline: none;
@@ -54,7 +54,7 @@
     background-color: white;
 }
 
-.container-suggestions__pre{
+.container-suggestions__pre {
     position: absolute;
     display: block;
     outline: none;
@@ -72,24 +72,24 @@
     cursor: pointer;
 }
 
-.about__desc{
-    margin-bottom: 32px ;
+.about__desc {
+    margin-bottom: 32px;
     font-size: 1.6rem;
     color: #555555;
 }
 
-.suggestions__img{
+.suggestions__img {
     border-radius: 3px;
     border-style: none;
     max-width: 100%;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
-.suggestions__body{
+.suggestions__body {
     margin-top: 12px;
 }
 
-.suggestions__body--header{
+.suggestions__body--header {
     margin: 0;
     font-size: 1.2rem;
     color: #555555;
@@ -97,12 +97,12 @@
     font-weight: 500;
 }
 
-.suggestions__body--desc{
+.suggestions__body--desc {
     font-size: 1.6rem;
     color: #222222c2;
     font-weight: 400;
 }
 
-.suggestions__body--desc:hover{
+.suggestions__body--desc:hover {
     color: var(--primary-color);
 }

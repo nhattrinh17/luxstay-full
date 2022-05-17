@@ -1,0 +1,92 @@
+.footer-top {
+    padding-bottom: 60px;
+}
+
+.about-item {
+    display: flex;
+    margin-top: 24px;
+}
+
+.about-item__conten {
+    text-align: left;
+    margin-left: 13px;
+}
+
+.about-item__conten--text {
+    font-size: 1.4rem;
+    margin: 0 0 8px 0;
+    color: var(--back-color);
+    font-weight: 600;
+}
+
+.about-item__conten--link {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.about-item__conten--link:hover {
+    color: var(--primary-color);
+}
+
+.about-item__conten--call {
+    margin-top: -3px;
+}
+
+.about-item__conten--call-link {
+    display: block;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 10px 0;
+}
+
+.about-item__conten--call-link:hover {
+    color: var(--primary-color);
+}
+
+.widget__title {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.widget__menu-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.widget__menu-item--link {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 10px 2px;
+}
+
+.widget__menu-item--link:hover {
+    color: var(--primary-color);
+}
+
+.dowload-luxstay {
+    display: flex;
+}
+
+.dowload-luxstay__qr {
+    border: 1px solid #00000026;
+    width: 73px;
+    padding: 12px;
+}
+
+.dowload-luxstay__app--img {
+    width: 100%;
+    margin-bottom: 19px;
+}
+
+.footer-bottom {
+    padding: 24px 15px;
+    text-align: center;
+    border-top: 1px solid #9999;
+}
+
+.footer-bottom__text {
+    font-size: 1.4rem;
+    color: rgb(112, 112, 112);
+}
