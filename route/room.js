@@ -1,7 +1,14 @@
 const express = require("express")
 const router = express.Router()
 const middlewareControler = require("../controller/middlewareController")
+const roomController = require("../controller/roomController")
 
-router.post("/add", middlewareControler.verifilyTokenAndHostOrAdmin)
+router.get("/:id", middlewareControler.verifilyTokenAndHostOrAdmin, roomController.getRoom)
+
+router.post("/add", middlewareControler.verifilyTokenAndHostOrAdmin, roomController.addRoom)
+
+router.put("/edit/:id", middlewareControler.verifilyTokenAndHostOrAdmin, roomController.editRoom)
+
+router.delete("/delete/:id", middlewareControler.verifilyTokenAndHostOrAdmin, roomController.deleteRoom)
 
 module.exports = router

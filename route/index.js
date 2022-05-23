@@ -1,9 +1,11 @@
 const userRouter = require("./user")
-const placeRoute = require("./place")
+const placeRouter = require("./place")
+const roomRouter = require("./room")
 
 function router(app) {
     app.use("/user", userRouter)
-    app.use("/place", placeRoute)
+    app.use("/place", placeRouter)
+    app.use("/rooms", roomRouter)
 }
 
 module.exports = router;
