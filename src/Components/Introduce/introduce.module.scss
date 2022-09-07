@@ -1,0 +1,37 @@
+/* introduce */
+
+.container-introduce {
+    margin-bottom: 64px;
+}
+
+.introduce-conten__logo {
+    display: block;
+    width: 60%;
+}
+
+.introduce-conten__heading {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+.introduce-conten__text {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin: 0 0 16px 0;
+}
+
+.introduce-link__qr {
+    width: 180px;
+    padding: 12px;
+    border: 1px solid rgb(211 211 210);
+}
+
+.introduce-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.introduce-link__img {
+    width: 100%;
+    object-fit: cover;
+}

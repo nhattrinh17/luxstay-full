@@ -1,0 +1,257 @@
+.header-search {
+    position: relative;
+    display: flex;
+    height: 51px;
+    max-width: 600px;
+    margin-left: 15px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-search-icon {
+    font-size: 1.4rem;
+    margin-left: 16px;
+}
+
+.header-search__input {
+    margin-left: 10px;
+    width: 250px;
+    height: 100%;
+    padding: 16px 7px;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+/* Header search history */
+
+.header-search--history {
+    width: 586px;
+    background-color: var(--While-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn linear 0.5s;
+    z-index: 1;
+}
+
+.header-search--history__heading {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.header-search__day {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: 500;
+    margin: 0 20px;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 7px;
+        height: 36px;
+        border-left: 1px solid rgba(0, 0, 0, 0.09);
+    }
+}
+
+.header-search__day--icon {
+    font-size: 1.4rem;
+    margin-right: 12px;
+}
+
+.header-search__day--text {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 50px;
+    width: 64px;
+}
+
+.header-search__day--input {
+    font-size: 1.4rem;
+    width: 150px;
+    height: 30px;
+}
+
+/* Amoun people */
+
+.header-search__amount {
+    display: flex;
+    position: relative;
+    margin: 0 16px;
+    height: 51px;
+    align-items: center;
+    cursor: pointer;
+    min-width: 74px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 7px;
+        height: 36px;
+        border-left: 1px solid rgba(0, 0, 0, 0.09);
+    }
+}
+
+.header-search__amount--icon {
+    line-height: 50px;
+    font-size: 1.4rem;
+    margin-right: 12px;
+}
+
+.header-search__amount--text {
+    padding: 19px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    width: 60;
+}
+
+.header-search__amount-people {
+    max-width: 320px;
+    background-color: var(--While-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    border-radius: 3px;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 43%;
+        height: 10px;
+        position: absolute;
+        top: -10px;
+        left: 19%;
+        background-color: transparent;
+    }
+}
+
+.amount-people__list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.amount-people__item {
+    margin-top: 16px;
+    width: 294px;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.amount-people__item--lever {
+    text-align: left;
+}
+
+.amount-people__item--lever--text {
+    display: block;
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.amount-people__item--lever--des {
+    margin: 5px 0 0 0;
+    color: #555555;
+    font-size: 1.2rem;
+}
+
+.amount-people__item--wap {
+    display: flex;
+    width: 140px;
+}
+
+.amount-people__item--icon-minus {
+    display: block;
+    background-color: #f5f7fa;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.amount-people__item--icon-minus.active {
+    opacity: 1;
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.amount-people__item--amount {
+    height: 40px;
+    width: 60px;
+    border: none;
+    text-align: center;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+.amount-people__item--icon-plus {
+    display: block;
+    background-color: #f5f7fa;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ced4da;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.amount-people__confirm {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.amount-people__confirm-delete {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.amount-people__confirm-apply {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-search__start {
+    text-decoration: none;
+    margin-right: 6px;
+    width: 57px;
+    height: 36px;
+    text-align: center;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.header-search__start--icon {
+    font-size: 1.4rem;
+    color: var(--While-color);
+    line-height: 36px;
+}

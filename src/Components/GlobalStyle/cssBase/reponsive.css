@@ -1,0 +1,260 @@
+/* Mobile && Tablet */
+@media (max-width: 63.9375em) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .app {
+        padding: 0 12px;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background-color: var(--While-color);
+        min-height: 40px;
+    }
+
+    .header-wap {
+        justify-content: space-around;
+    }
+
+    .header-search__day,
+    .header-search__amount,
+    .header-navbar {
+        display: none !important;
+    }
+
+    .header-search {
+        box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .header-mobile__bar {
+        display: block;
+    }
+
+    .mobile-nav__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-navbar {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 10%;
+        background-color: var(--While-color);
+        text-align: left;
+        transform: translateX(-100%);
+        transition: transform linear 0.2s;
+    }
+
+    .mobile-input__checkbox:checked ~ .header-navbar {
+        transform: translateX(0);
+    }
+
+    .header-navbar__list {
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 10;
+    }
+
+    .header-navbar__item {
+        padding: 14px 6px;
+    }
+
+    .pointer__lis--money::before {
+        display: none !important;
+    }
+
+    .header--navbar__pointer {
+        width: 70%;
+        margin: 10px;
+    }
+
+    .pointer {
+        width: 100% !important;
+        flex-direction: column;
+    }
+
+    .pointer::before {
+        display: none;
+    }
+
+    .pointer__lis--money,
+    .pointer__lis--language {
+        width: 100% !important;
+    }
+
+    .container-place__pre,
+    .container-place__next {
+        display: none !important;
+    }
+
+    .container-suggestions__pre,
+    .container-suggestions__next {
+        display: none !important;
+    }
+
+    .container-tutorial__pre,
+    .container-tutorial__next {
+        display: none !important;
+    }
+}
+
+/* tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .m-4 {
+        flex: 0 0 0 32%;
+        max-width: 32%;
+    }
+
+    .m-6 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .ovelay-conten {
+        min-height: 1150px;
+    }
+
+    .moda-body {
+        top: 212px;
+        right: 20px;
+    }
+
+    .content-item {
+        margin-right: 50%;
+    }
+
+    .container-slider {
+        margin-bottom: 30px;
+        margin-top: 120px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    .c-6 {
+        flex: 0 0 47%;
+        max-width: 47%;
+    }
+
+    .c-12 {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+
+    .header-logo,
+    .header-search__start {
+        display: none;
+    }
+
+    .header-search {
+        height: 38px;
+    }
+
+    .header-search__input {
+        height: 33px;
+    }
+
+    .header-search__input {
+        max-width: 180px;
+    }
+
+    .container-slider {
+        margin-bottom: 30px;
+        margin-top: 80px !important;
+    }
+
+    .container-slider__input {
+        bottom: 0;
+    }
+
+    .container-welcome {
+        margin-top: 0;
+    }
+
+    .container-place__body--name {
+        font-size: 1.6rem;
+    }
+
+    .introduce-conten__logo {
+        width: 50%;
+    }
+
+    .ovelay-welcome {
+        margin-top: 30px;
+    }
+
+    .ovelay-conten {
+        min-height: 980px;
+    }
+
+    .moda-body {
+        top: calc(var(--header-height) + var(--ovelay-welcome-height) - 20px);
+        right: 8px;
+        left: 24px;
+    }
+
+    .auth-form__group {
+        max-width: 350px;
+    }
+
+    .auth-form__input {
+        max-width: 75%;
+    }
+
+    .ovelay-conten__login {
+        margin-top: 820px !important;
+        padding: 0 16px;
+    }
+
+    .ovelay-conten__registration {
+        margin-top: 880px !important;
+        padding: 0 16px;
+    }
+
+    .ovelay-footer__content {
+        padding: 0 16px;
+    }
+
+    /* Homestay */
+
+    .search-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .search-filter::-webkit-scrollbar {
+        display: none;
+    }
+
+    .search-filter button {
+        min-width: 110px;
+        height: 40px;
+    }
+
+    .homestay-page__item:nth-child(6),
+    .homestay-page__item:nth-child(7),
+    .homestay-page__item:nth-child(8) {
+        display: none;
+    }
+
+    .homestay-page__forward {
+        margin: 0;
+    }
+
+    .container-product {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}

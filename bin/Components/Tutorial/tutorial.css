@@ -1,0 +1,82 @@
+.container-tutorial__list {
+    padding-bottom: 65px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.container-tutorial__list::-webkit-scrollbar {
+    display: none;
+}
+
+.container-tutorial__item.active {
+    display: block !important;
+    animation: fadeIn ease 2s;
+}
+
+.container-tutorial__item {
+    display: none !important;
+}
+
+.container-tutorial__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.container-tutorial {
+    margin-bottom: 62px;
+    position: relative;
+}
+
+.container-tutorial__img {
+    max-width: 100%;
+    padding-top: 54.317%;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.container-tutorial__next {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    right: 0px;
+    top: 40%;
+    z-index: 1;
+    background-color: #ffffff8f;
+    border-radius: 49%;
+    border: none;
+    line-height: 40px;
+    box-shadow: 0 0 7px -4px #000;
+    cursor: pointer;
+}
+
+.container-tutorial__pre.active {
+    background-color: white;
+}
+
+.container-tutorial__next.active {
+    background-color: white;
+}
+
+.container-tutorial__pre {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    left: 0px;
+    top: 40%;
+    z-index: 1;
+    background-color: #ffffff8f;
+    border-radius: 49%;
+    border: none;
+    line-height: 40px;
+    box-shadow: 0 0 7px -4px #000;
+    cursor: pointer;
+}

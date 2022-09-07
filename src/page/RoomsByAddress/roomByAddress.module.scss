@@ -1,0 +1,34 @@
+.filter__list {
+    padding: 12px 0;
+}
+
+.filter__item {
+    margin-top: 0;
+    height: 36px;
+    border-radius: 5px;
+    margin-right: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    transition: all 0.3s;
+    background-color: #fff;
+    padding: 0 12px;
+    transition: all linear 0.2s;
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
+}
+
+.note {
+    margin: 40px 0;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: #555;
+}
+
+.note__before {
+    font-weight: bold;
+}
+
+.note__after {
+}

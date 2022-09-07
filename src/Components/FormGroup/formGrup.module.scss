@@ -1,0 +1,35 @@
+.form-group {
+    position: relative;
+    /* width: 345px; */
+    /* margin-top: 36px; */
+}
+
+.form-control {
+    outline: none;
+    border: none;
+    height: 48px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 43px;
+    font-size: 1.4rem;
+    padding-left: 10px;
+}
+
+.form-group .form-control {
+    &:hover {
+        border-color: var(--primary-color);
+    }
+}
+
+.form-control {
+    &:hover {
+        border-color: var(--primary-color);
+    }
+}
+
+.auth-form__input--icon {
+    position: absolute;
+    font-size: 1.4rem;
+    top: 48px;
+    right: 32px;
+}

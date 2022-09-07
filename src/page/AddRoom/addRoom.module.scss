@@ -1,0 +1,48 @@
+.warrape {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.btn-submit {
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 5px 0 rgb(246 94 57 / 50%);
+    border-radius: 34px;
+    color: var(--While-color);
+    font-size: 1.6rem;
+    outline: none;
+    border: navajowhite;
+    height: 32px;
+    line-height: 32px;
+}
+
+.from-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    min-width: 30px;
+    max-width: 100px;
+    height: 30px;
+}
+
+.form-group .form-control {
+    &:hover {
+        border-color: var(--primary-color);
+    }
+}
+
+.form-control {
+    &:hover {
+        border-color: var(--primary-color);
+    }
+}
+
+.auth-form__input--icon {
+    position: absolute;
+    font-size: 1.4rem;
+    top: 48px;
+    right: 32px;
+}

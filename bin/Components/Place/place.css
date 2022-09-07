@@ -1,0 +1,115 @@
+.container-place {
+    padding: 40px 0 60px;
+}
+
+.container-place__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    position: relative;
+}
+
+.container-place__item {
+    display: none !important;
+}
+
+.container-place__item.active {
+    display: block !important;
+    animation: fadeIn ease 2s;
+}
+
+.container-place__next {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    right: 0px;
+    top: 40%;
+    z-index: 1;
+    background-color: #ffffff8f;
+    border-radius: 49%;
+    border: none;
+    line-height: 40px;
+    box-shadow: 0 0 7px -4px #000;
+    cursor: pointer;
+}
+
+.container-place__pre.active {
+    background-color: white;
+}
+
+.container-place__next.active {
+    background-color: white;
+}
+
+.container-place__pre {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    left: 0px;
+    top: 40%;
+    z-index: 1;
+    background-color: #ffffff8f;
+    border-radius: 49%;
+    border: none;
+    line-height: 40px;
+    box-shadow: 0 0 7px -4px #000;
+    cursor: pointer;
+}
+
+.container-place__list::-webkit-scrollbar {
+    display: none;
+}
+
+.place__heading {
+    margin: 0 0 16px 0;
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+}
+
+.place__desc {
+    font-size: 1.6rem;
+    color: #555555;
+    margin: 0 0 16px 0;
+}
+
+.container-place__conten {
+    border-radius: 6px;
+    position: relative;
+}
+
+.container-place__conten::before {
+    content: '';
+    display: block;
+    padding-top: 125%;
+}
+
+.container-place__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.container-place__body {
+    position: absolute;
+    top: 70%;
+    left: 12%;
+    color: var(--While-color);
+}
+
+.container-place__body--name {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+}
+
+.container-place__body--number {
+    font-size: 1.6rem;
+}
